@@ -1,0 +1,14 @@
+# Pastas do dbt para ignorar
+target/
+dbt_packages/
+logs/
+
+# Pasta do ambiente virtual Python
+venv/
+
+# Configurações locais do VS Code
+.vscode/
+
+# Arquivos temporários do Python
+__pycache__/
+*.pyc

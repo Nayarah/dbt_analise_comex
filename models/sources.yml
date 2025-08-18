@@ -1,0 +1,13 @@
+version: 2
+sources:
+  - name: br_bd_diretorios_brasil 
+    database: basedosdados          
+    schema: br_bd_diretorios_brasil 
+    tables:
+      - name: municipio           
+
+  - name: br_ibge_populacao
+    database: basedosdados
+    schema: br_ibge_populacao
+    tables:
+      - name: municipio
