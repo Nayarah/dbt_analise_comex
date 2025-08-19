@@ -1,13 +1,16 @@
 version: 2
-sources:
-  - name: br_bd_diretorios_brasil 
-    database: basedosdados          
-    schema: br_bd_diretorios_brasil 
-    tables:
-      - name: municipio           
 
-  - name: br_ibge_populacao
+sources:
+  - name: br_me_comex_stat # Principal conjunto de dados
     database: basedosdados
-    schema: br_ibge_populacao
+    schema: br_me_comex_stat
+    tables:
+      - name: municipio_exportacao
+      - name: municipio_importacao
+      - name: dicionario
+
+  - name: br_bd_diretorios_brasil # Repositório para extrair a informação dos nomes
+    database: basedosdados
+    schema: br_bd_diretorios_brasil
     tables:
       - name: municipio
