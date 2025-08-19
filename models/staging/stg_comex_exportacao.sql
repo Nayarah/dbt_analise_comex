@@ -12,7 +12,7 @@ SELECT
     CAST(mes AS INT64) AS mes,
     CAST(id_municipio AS STRING) AS id_municipio,
     CAST(id_pais AS STRING) AS id_pais,
-    CAST(id_sh4 AS STRING) AS id_sh4,
+    CAST(id_sh4 AS STRING) AS id_produto_sh4,
     CAST(sigla_uf AS STRING) AS sigla_uf,
 
     -- Métricas (os valores numéricos da análise)
