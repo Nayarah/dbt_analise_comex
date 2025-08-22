@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: br_me_comex_stat # Principal conjunto de dados
+  - name: br_me_comex_stat
     database: basedosdados
     schema: br_me_comex_stat
     tables:
@@ -9,8 +9,14 @@ sources:
       - name: municipio_importacao
       - name: dicionario
 
-  - name: br_bd_diretorios_brasil # Repositório para extrair a informação dos nomes
+  - name: br_bd_diretorios_brasil
     database: basedosdados
     schema: br_bd_diretorios_brasil
     tables:
       - name: municipio
+
+  - name: br_bd_diretorios_mundo
+    database: basedosdados
+    schema: br_bd_diretorios_mundo
+    tables:
+      - name: sistema_harmonizado

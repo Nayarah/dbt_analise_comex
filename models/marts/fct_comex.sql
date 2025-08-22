@@ -12,10 +12,11 @@ WITH importacao AS (
         id_municipio,
         id_pais,
         id_produto_sh4,
-        valor_fob_dolar AS valor_fob_dolar_importado,
-        peso_liquido_kg AS peso_liquido_kg_importado
+        SUM (valor_fob_dolar) AS valor_fob_dolar_importado,
+        SUM (peso_liquido_kg) AS peso_liquido_kg_importado
     FROM
         {{ ref('stg_comex_importacao') }}
+    GROUP BY 1, 2, 3, 4
 ),
 
 -- Passo 2: Selecionar e renomear as colunas de exportação
@@ -25,10 +26,11 @@ exportacao AS (
         id_municipio,
         id_pais,
         id_produto_sh4,
-        valor_fob_dolar AS valor_fob_dolar_exportado,
-        peso_liquido_kg AS peso_liquido_kg_exportado
+        SUM (valor_fob_dolar) AS valor_fob_dolar_exportado,
+        SUM (peso_liquido_kg) AS peso_liquido_kg_exportado
     FROM
         {{ ref('stg_comex_exportacao') }}
+    GROUP BY 1, 2, 3, 4
 ),
 
 -- Passo 3: Juntar importações e exportações em uma única tabela
@@ -81,3 +83,6 @@ LEFT JOIN
     {{ ref('dim_paises') }} AS p ON m.id_pais = p.id_pais
 LEFT JOIN
     {{ ref('dim_produtos') }} AS prod ON m.id_produto_sh4 = prod.id_produto_sh4
+WHERE
+    -- A cláusula WHERE remove o Brasil E os outros códigos especiais
+    m.id_pais NOT IN ('105', '0', '994')

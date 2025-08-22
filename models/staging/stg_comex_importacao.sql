@@ -24,3 +24,4 @@ SELECT
 
 FROM
     source
+WHERE id_municipio IS NOT NULL

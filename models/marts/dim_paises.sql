@@ -19,4 +19,8 @@ FROM
     source_dicionario
 WHERE
     -- Filtra para pegar apenas as linhas que correspondem ao dicionário de países
-    id_tabela = 'pais'
+    nome_coluna = 'id_pais'
+    AND chave != '0'
+    AND chave != '994'
+GROUP BY
+  1,2
