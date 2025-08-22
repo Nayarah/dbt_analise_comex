@@ -85,4 +85,4 @@ LEFT JOIN
     {{ ref('dim_produtos') }} AS prod ON m.id_produto_sh4 = prod.id_produto_sh4
 WHERE
     -- A cláusula WHERE remove o Brasil E os outros códigos especiais
-    m.id_pais NOT IN ('105', '0', '994')
+    m.id_pais NOT IN ('105', '0', '994', '990')
